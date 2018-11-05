@@ -1,7 +1,10 @@
 ﻿using OpenQA.Selenium;
+using System;
 
 class WebDriverFactory
     {
+
+    [ThreadStatic]
     private static IWebDriver driver;
 
     public static IWebDriver getDriver()
