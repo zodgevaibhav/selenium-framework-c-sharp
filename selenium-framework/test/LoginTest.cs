@@ -7,13 +7,17 @@ class Program : BaseSelenium
     {
     public static void Main(string [] args)
     {
+        IWebDriver dr = new ChromeDriver();
+        dr.Navigate().GoToUrl("http://www.google.com");
     }
 
         [Test]
         public void verifyAdminLoginSuccessful()
         {
         LoginPage lp = new LoginPage();
-        lp.naviagteToLoginPage();
+        lp.naviagteToLoginPage()
+            .login("Admin", "admin123")
+                .verifyWelcomeText("Welcome Admin");
         }
 
 }
